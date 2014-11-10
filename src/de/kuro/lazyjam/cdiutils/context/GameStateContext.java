@@ -1,0 +1,24 @@
+package de.kuro.lazyjam.cdiutils.context;
+
+import de.kuro.lazyjam.ecmodel.IGameState;
+
+public class GameStateContext implements ICallerContext {
+
+	private GlobalContext globalContext;
+	public IGameState gs; 
+	
+	public GameStateContext(GlobalContext gc, IGameState gs) {
+		this.globalContext = gc;
+		this.gs = gs;
+	}
+
+	@Override
+	public <T> T getContextObject(Class<T> clazz) {
+		if(clazz.isInstance(gs)) {
+			return (T) gs;
+		}
+		return globalContext.getContextObject(clazz);
+	}
+	
+
+}
