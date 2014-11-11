@@ -24,7 +24,8 @@ public class FontManager {
 	private BitmapFont font;
 
 	public FontManager() {
-		font = new BitmapFont();		
+		font = new BitmapFont();
+		font.scale(100f);
 	}
 	
 	public void init() {
@@ -62,7 +63,12 @@ public class FontManager {
 	}
 
 	public void drawAbsoluteWithRectangle(float x, float y, String picture, Rectangle rect) {
-		// TODO Auto-generated method stub
+		String[] splitPicture = picture.split("\\n");
+		int yOffset = 0;
+		for(String line : splitPicture) {
+			this.drawTextAbsolut(x , y + this.font.getLineHeight() *yOffset, line, Color.GREEN);
+			yOffset++;
+		}
 		
 	}
 

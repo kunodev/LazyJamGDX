@@ -1,5 +1,6 @@
 package de.kuro.lazyjam.asciiassetextension;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
@@ -15,7 +16,8 @@ public class ASCIIAssetManager {
 	public Map<String, ASCIISpriteAnimation> assetBank;
 	
 	public ASCIIAssetManager() {
-		FileHandle assetFolder = Gdx.files.internal("assets");
+		FileHandle assetFolder = Gdx.files.local("../core/assets/asciiassets");
+		assetBank = new HashMap<String, ASCIISpriteAnimation>();
 		for(FileHandle handle : assetFolder.list(".txt")) {
 			ASCIISpriteAnimation newAnim = new ASCIISpriteAnimation();
 			newAnim.load(handle.reader(128));

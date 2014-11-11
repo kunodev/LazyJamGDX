@@ -39,9 +39,7 @@ public class PNGSpriteRenderComponent extends SimpleAbstractAnimationComponent {
 			this.renderableObjects = new ArrayList<ArrayList<IRectangleProvider>>();
 		}
 		for(int i=0; i<maxY; i++) {
-			if(this.renderableObjects.get(i) == null) {
-				this.renderableObjects.add(new ArrayList<IRectangleProvider>());
-			}
+			this.renderableObjects.add(new ArrayList<IRectangleProvider>());
 			for(int j=0; j<maxX; j++) { 
 				IRectangleProvider newDrawable = new SpriteWrapper(new Sprite(preFab, 
 						currX * widthOfSprite, currY * heightOfSprite,

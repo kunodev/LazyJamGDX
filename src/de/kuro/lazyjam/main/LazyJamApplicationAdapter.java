@@ -4,9 +4,11 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 
 import de.kuro.lazyjam.cdiutils.cdihelper.ReflectionUtil;
@@ -14,6 +16,7 @@ import de.kuro.lazyjam.cdiutils.cdihelper.ServiceManager;
 import de.kuro.lazyjam.cdiutils.context.GameStateContext;
 import de.kuro.lazyjam.ecmodel.GameStateContextManager;
 import de.kuro.lazyjam.settings.Constants;
+import de.kuro.lazyjam.simpleservice.FontManager;
 import de.kuro.lazyjam.tiled.TiledMapProvider;
 
 public abstract class LazyJamApplicationAdapter extends ApplicationAdapter {
@@ -25,11 +28,7 @@ public abstract class LazyJamApplicationAdapter extends ApplicationAdapter {
 	
 	public Camera initCam() {
 		OrthographicCamera cam = new OrthographicCamera();
-		cam.position.set(0, 0, Constants.Z_START_CAMERA);
-		cam.up.set(0,1,0);
-		cam.update();
-		cam.lookAt(new Vector3(0,0,0));
-		cam.update();
+		cam.setToOrtho(false, 1024, 768);
 		return cam;
 	}
 	
@@ -61,6 +60,7 @@ public abstract class LazyJamApplicationAdapter extends ApplicationAdapter {
 		serviceMan.getService(TiledMapProvider.class).render();
 		batch.begin();
 		gscm.render();
+
 		batch.end();
 	}
 	

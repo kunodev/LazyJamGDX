@@ -1,5 +1,8 @@
 package de.kuro.lazyjam.asciiassetextension;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -36,7 +39,7 @@ public class ASCIIPicture implements IRectangleProvider {
 	}
 	
 	@Render
-	public void draw(FontManager fm, Vector2 pos){
+	public void draw(FontManager fm, Vector2 pos, SpriteBatch b){
 		fm.drawAbsoluteWithRectangle(pos.x, pos.y, this.picture, this.rect);
 	}
 	

@@ -23,7 +23,6 @@ public class ASCIISpriteAnimation extends SimpleAbstractAnimationComponent {
 
 
 	public ASCIISpriteAnimation() {
-
 	}
 
 	public ASCIISpriteAnimation(ArrayList<ArrayList<IRectangleProvider>> pic) {
@@ -38,6 +37,7 @@ public class ASCIISpriteAnimation extends SimpleAbstractAnimationComponent {
 	
 	public boolean load(BufferedReader reader) {
 		/* Load String from file */
+		this.renderableObjects = new ArrayList<ArrayList<IRectangleProvider>>();
 		try {
 			// String line = null;
 			// boolean states = false;

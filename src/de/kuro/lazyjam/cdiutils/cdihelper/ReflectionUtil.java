@@ -10,7 +10,15 @@ public class ReflectionUtil {
 	public static final String SAVE_FILE = "reflectionStore.sav";
 	
 	public static void init() {
-		reflect = new Reflections("",new SubTypesScanner(false), new TypeAnnotationsScanner());
+		reflect = new Reflections("de.kuro.lazyjam",new SubTypesScanner(false), new TypeAnnotationsScanner());
+		addReflection("");
+		//Seriously... have to do something about this?
+	}
+	
+	public static void addReflection(String packageName) {
+		Reflections otherReflect = new Reflections(packageName,new SubTypesScanner(false), new TypeAnnotationsScanner() );
+		reflect.merge(otherReflect);
+//		save();
 	}
 	
 	public static void save() {
