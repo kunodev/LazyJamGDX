@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 
 import de.kuro.lazyjam.asciiassetextension.IRectangleProvider;
 import de.kuro.lazyjam.asciiassetextension.SpriteWrapper;
