@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 
 import de.kuro.lazyjam.cdiutils.annotations.InjectedService;
 import de.kuro.lazyjam.cdiutils.annotations.Service;
@@ -58,6 +59,11 @@ public class FontManager {
 
 	public void drawTextAbsolut(float x, float y, String text, Color color) {
 		this.drawTextAbsolut((int) x, (int) y, text, color);
+	}
+
+	public void drawAbsoluteWithRectangle(float x, float y, String picture, Rectangle rect) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

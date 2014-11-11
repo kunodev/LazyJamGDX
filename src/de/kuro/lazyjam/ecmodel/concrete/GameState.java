@@ -30,17 +30,6 @@ public class GameState extends AGameState {
 
 	@Override
 	public void onRender(GlobalContext globalContext) {
-//		if (map != null) {
-//			map.render(cam.getX() % serviceMan.getService(Settings.class).getInt("TILE_SIZE"), cam.getY()
-//					% serviceMan.getService(Settings.class).getInt("TILE_SIZE"),
-//					cam.getX() / serviceMan.getService(Settings.class).getInt("TILE_SIZE"), cam.getY()
-//							/ serviceMan.getService(Settings.class).getInt("TILE_SIZE"),
-//					(serviceMan.getService(Settings.class).getInt("SCREENWIDTH") / serviceMan.getService(Settings.class).getInt("TILE_SIZE")) + 2,
-//					(serviceMan.getService(Settings.class).getInt("SCREENHEIGHT") / serviceMan.getService(Settings.class).getInt("TILE_SIZE")) + 2);
-//			// //
-//			// map.render(cam.getX(), cam.getY());
-//			// map.render(0, 0, 0, 0, 1024, 768);
-//		} TODO: Tiled Support
 		GameStateContext gsc = new GameStateContext(globalContext, this);
 		gameObjects.stream().forEach(e -> e.onRender(gsc));
 	}

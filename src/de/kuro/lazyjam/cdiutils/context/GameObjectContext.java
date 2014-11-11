@@ -15,6 +15,9 @@ public class GameObjectContext implements ICallerContext{
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T getContextObject(Class<T> clazz) {
+		if(clazz.isInstance(this)) {
+			return (T) this;
+		}
 		if(clazz.isInstance(go)) {
 			return (T) go;
 		} 
