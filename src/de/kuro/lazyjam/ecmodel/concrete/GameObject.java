@@ -31,6 +31,10 @@ public class GameObject {
 	public GameObject(Vector2 pos, IGameState gs) {
 		this(pos, null, gs);
 	}
+	
+	private GameObject() {
+		
+	}
 
 	public GameObject(Vector2 pos, String tag, IGameState gs) {
 		this.tag = tag;
@@ -118,8 +122,8 @@ public class GameObject {
 		this.renderWithContext(ec);
 	}
 	
-	public GameObject createChild(IGameState gs) {
-		GameObject child = new GameObject(new Vector2(), gs);
+	public GameObject createChild(IGameState gs, String tag) {
+		GameObject child = new GameObject(new Vector2(),tag, gs);
 		RelativityComponent comp = new RelativityComponent();
 		child.addComponent(comp);
 		comp.parent = this;
