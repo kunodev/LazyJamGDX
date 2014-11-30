@@ -107,23 +107,17 @@ public class GameObject {
 		return sb.toString();
 	}
 	
-	@Update
-	public void onUpdate(GameObjectContext goc) {
-		GameObjectContext childContext = new GameObjectContext(goc, this);
-		this.callUpdateOnChildren(childContext);
-	}
-	
-	@Render
-	public void onRender(GameObjectContext goc) {
-		Vector2 combinedPos = new Vector2();
-		combinedPos.set(this.pos);
-		combinedPos.add(goc.go.getPos());
-		ExtendableContext ec = new ExtendableContext(goc);
-		this.renderWithContext(ec);
-	}
-	
 	public GameObject createChild(IGameState gs, String tag) {
 		GameObject child = new GameObject(new Vector2(),tag, gs);
+		return childAdding(child);
+	}
+
+	public GameObject createChild(IGameState gs) {
+		GameObject child = new GameObject(new Vector2(), gs);
+		return childAdding(child);
+	}
+	
+	private GameObject childAdding(GameObject child) {
 		RelativityComponent comp = new RelativityComponent();
 		child.addComponent(comp);
 		comp.parent = this;
