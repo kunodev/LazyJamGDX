@@ -5,19 +5,25 @@ import java.util.List;
 
 import com.badlogic.gdx.math.Vector2;
 
+import de.kuro.lazyjam.cdiutils.annotations.Collide;
+import de.kuro.lazyjam.cdiutils.annotations.Destroy;
 import de.kuro.lazyjam.cdiutils.annotations.Render;
 import de.kuro.lazyjam.cdiutils.annotations.Update;
 import de.kuro.lazyjam.cdiutils.cdihelper.CDICallHelper;
 import de.kuro.lazyjam.cdiutils.cdihelper.ServiceManager;
+import de.kuro.lazyjam.cdiutils.context.CollisionGameObjectContext;
 import de.kuro.lazyjam.cdiutils.context.GameObjectContext;
 import de.kuro.lazyjam.cdiutils.context.GameStateContext;
 import de.kuro.lazyjam.ecmodel.IGameState;
+import de.kuro.lazyjam.ecmodel.concrete.tools.Collision;
 
 public class GameObject {
 
 	private Vector2 pos;
 	private String tag;
 	private List<Object> components;
+	
+	private GameObjectContext goc;
 
 	public GameObject(Vector2 pos, IGameState gs) {
 		this(pos, null, gs);
@@ -31,7 +37,7 @@ public class GameObject {
 	}
 
 	public void onUpdate(GameStateContext gsc) {
-		GameObjectContext goc = new GameObjectContext(gsc, this);
+		goc = new GameObjectContext(gsc, this);
 		for(Object comp : this.components) {
 			CDICallHelper.callOnObject(goc, Update.class, comp);
 		}
@@ -63,12 +69,27 @@ public class GameObject {
 		} 
 		return null;
 	}
+	
+	public void callCollide(GameObjectContext otherGOContext) {
+		CollisionGameObjectContext cgoc = new CollisionGameObjectContext(otherGOContext, this);
+		this.components.stream().forEach(e -> CDICallHelper.callOnObject(cgoc, Collide.class, e));
+	}
 
 	public void selfDestruct(GameState gs) {
 		gs.removeGameObject(this, tag);
+		this.components.stream().forEach(e -> CDICallHelper.callOnObject(goc, Destroy.class, e));	
 	}
 	
 	public List<Object> getComponents() {
 		return components;
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("GAMEOBJECT \n");
+		this.components.stream().forEach(e -> sb.append(e.getClass().toString() + "\n"));
+		sb.append("\n");
+		return sb.toString();
+		
 	}
 }

@@ -32,6 +32,14 @@ public class GameStateContextManager {
 		this.gameStates.put(key, state);
 	}
 	
+	public void removeGameState(Class<? extends IGameState> key) {
+		if (gameStates.containsKey(key)) {
+			if (gameStates.get(key) != activeState) {
+				gameStates.remove(key);
+			}
+		}
+	}
+	
 	public void initMainGameState(IGameState gs) {
 		this.mainState = gs;
 		this.activeState = gs;
@@ -58,13 +66,13 @@ public class GameStateContextManager {
 
 	public void render() {
 		if(activeState != null) {
-			activeState.onRender(new GlobalContext(this.serviceMan));
+			activeState.onRender(new GlobalContext(this.serviceMan, this));
 		}
 	}
 
 	public void update(int deltaInMilliseconds) {
 		if(activeState != null) {
-			activeState.onUpdate(new GlobalContext(this.serviceMan), deltaInMilliseconds);
+			activeState.onUpdate(new GlobalContext(this.serviceMan, this), deltaInMilliseconds);
 		}
 	}
 

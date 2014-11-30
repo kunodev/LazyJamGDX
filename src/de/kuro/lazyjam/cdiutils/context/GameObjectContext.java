@@ -4,8 +4,8 @@ import de.kuro.lazyjam.ecmodel.concrete.GameObject;
 
 public class GameObjectContext implements ICallerContext{
 	
-	private GameStateContext gsc;
-	private GameObject go;
+	public GameStateContext gsc;
+	public GameObject go;
 
 	public GameObjectContext(GameStateContext gsc, GameObject go) {
 		this.gsc = gsc;
