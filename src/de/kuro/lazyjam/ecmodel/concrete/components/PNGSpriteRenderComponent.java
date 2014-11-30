@@ -52,18 +52,15 @@ public class PNGSpriteRenderComponent extends SimpleAbstractAnimationComponent i
 
 		public MyTexRegion(Texture texture) {
 			super(texture);
-			// TODO Auto-generated constructor stub
 		}
 
 		public MyTexRegion(TextureRegion region, int x, int y, int width,
 				int height) {
 			super(region, x, y, width, height);
-			// TODO Auto-generated constructor stub
 		}
 
 		public MyTexRegion(TextureRegion region) {
 			super(region);
-			// TODO Auto-generated constructor stub
 		}
 
 		

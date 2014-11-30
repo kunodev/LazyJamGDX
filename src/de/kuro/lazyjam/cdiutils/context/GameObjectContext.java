@@ -4,10 +4,10 @@ import de.kuro.lazyjam.ecmodel.concrete.GameObject;
 
 public class GameObjectContext implements ICallerContext{
 	
-	public GameStateContext gsc;
+	public ICallerContext gsc;
 	public GameObject go;
 
-	public GameObjectContext(GameStateContext gsc, GameObject go) {
+	public GameObjectContext(ICallerContext gsc, GameObject go) {
 		this.gsc = gsc;
 		this.go = go;
 	}
@@ -28,6 +28,9 @@ public class GameObjectContext implements ICallerContext{
 			if(clazz.isInstance(silbing)) {
 				return (T) silbing;
 			}
+		}
+		if(gsc == this) {
+			System.out.println("youre doing shizzle!");
 		}
 		return gsc.getContextObject(clazz);
 	}
