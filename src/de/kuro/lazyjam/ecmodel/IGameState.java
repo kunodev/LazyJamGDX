@@ -41,4 +41,6 @@ public interface IGameState {
 	 */
 	public void addGameObject(GameObject gameObject, String tag);
 
+	public Object getService(Class<?> clazz);
+
 }

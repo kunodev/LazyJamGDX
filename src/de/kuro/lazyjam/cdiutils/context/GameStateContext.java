@@ -17,6 +17,9 @@ public class GameStateContext implements ICallerContext {
 		if(clazz.isInstance(gs)) {
 			return (T) gs;
 		}
+		if(gs.getService(clazz) != null) {
+			return (T) gs.getService(clazz);
+		}
 		return globalContext.getContextObject(clazz);
 	}
 	

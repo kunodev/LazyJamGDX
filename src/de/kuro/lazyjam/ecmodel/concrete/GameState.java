@@ -15,6 +15,7 @@ import de.kuro.lazyjam.cdiutils.cdihelper.ServiceManager;
 import de.kuro.lazyjam.cdiutils.context.GameStateContext;
 import de.kuro.lazyjam.cdiutils.context.GlobalContext;
 import de.kuro.lazyjam.ecmodel.AGameState;
+import de.kuro.lazyjam.ecmodel.concrete.tools.GameStateServiceManager;
 import de.kuro.lazyjam.ecmodel.concrete.tools.QueueSet;
 import de.kuro.lazyjam.ecmodel.concrete.tools.VectorDistanceComparator;
 
@@ -22,10 +23,12 @@ public class GameState extends AGameState {
 
 	public Collection<GameObject> gameObjects;
 	public Map<String, Collection<GameObject>> taggedGameObjects;
+	public GameStateServiceManager gameStateServiceMan;
 	
-	public GameState() {
+	public GameState(ServiceManager sm) {
 		taggedGameObjects = new HashMap<String, Collection<GameObject>>();
 		gameObjects = new QueueSet<GameObject>(this);
+		gameStateServiceMan = new GameStateServiceManager(sm);
 	}
 
 	@Override
@@ -122,6 +125,11 @@ public class GameState extends AGameState {
 
 	public List<GameObject> getClosestGameObject(Vector2 pos, Collection<GameObject> list) {
 		return list.stream().sorted(new VectorDistanceComparator(pos)).collect(Collectors.toList());
+	}
+
+	@Override
+	public Object getService(Class<?> clazz) {
+		return this.gameStateServiceMan.getService(clazz);
 	}
 
 }

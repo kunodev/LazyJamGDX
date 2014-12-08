@@ -12,7 +12,7 @@ public class CDICallHelper {
 	
 	public static void callOnObject(ICallerContext context, 
 			Class<? extends Annotation> annoClazz, Object o) {
-			Method m = getMethod(o, annoClazz);
+			Method m = getMethod(o.getClass(), annoClazz);
 			invokeMethod(context, o, m);
 	}
 
@@ -35,7 +35,7 @@ public class CDICallHelper {
 			Class<? extends Annotation> annoClazz, Object o) {
 		List<Method> methods = getMethodsIncludingHierarchy(o, annoClazz);
 		for(Method m : methods) {
-			invokeMethod(context, o, m);
+			invokeMethod(context, o, m); 
 		}
 	}
 	
@@ -46,9 +46,9 @@ public class CDICallHelper {
 		}
 		return result;
 	}
-
-	private static Method getMethod(Object comp, Class<? extends Annotation> annotation) {
-		for(Method m : comp.getClass().getMethods()) {
+	
+	private static Method getMethod(Class<?> compClassOrSuper, Class<? extends Annotation> annotation) {
+		for(Method m : compClassOrSuper.getMethods()) {
 			if(m.getAnnotation(annotation) != null) {
 				return m;
 			}
@@ -60,7 +60,7 @@ public class CDICallHelper {
 		LinkedList<Method> result = new LinkedList<Method>();
 		Class<?> current = comp.getClass();
 		while(current != null) {
-			result.addLast(getMethod(comp, annotation));
+			result.addLast(getMethod(current, annotation));
 			current = current.getSuperclass();
 		}
 		return result;

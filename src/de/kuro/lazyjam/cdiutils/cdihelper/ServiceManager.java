@@ -13,9 +13,9 @@ import de.kuro.lazyjam.cdiutils.annotations.Service;
 
 public class ServiceManager {
 
-	private Map<Class<?>, Object> servicesObjects;
-	private Map<List<Field>,Class<?>> injections;
-	private Map<Class<?>, Class<?>> interfaces;
+	protected Map<Class<?>, Object> servicesObjects;
+	protected Map<List<Field>,Class<?>> injections;
+	protected Map<Class<?>, Class<?>> interfaces;
 
 	public ServiceManager() {
 		servicesObjects = new HashMap<Class<?>, Object>();
@@ -104,7 +104,7 @@ public class ServiceManager {
 		
 	}
 
-	private void injectIntoNew(Object service) throws IllegalArgumentException, IllegalAccessException {
+	protected void injectIntoNew(Object service) throws IllegalArgumentException, IllegalAccessException {
 		Field[] fields = service.getClass().getFields();
 		for(Field field : fields) {
 			if(field.isAnnotationPresent(InjectedService.class)) {
@@ -115,7 +115,6 @@ public class ServiceManager {
 				//TODO: i could also look if i have an extension of the injected service... not sure
 			}
 		}
-		
 	}
 
 }
