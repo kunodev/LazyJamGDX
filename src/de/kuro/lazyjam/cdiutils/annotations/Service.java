@@ -6,6 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * This Annotation marks something as a Service 
+ * (Basically a way to define a super accessible singleton in one line)
  * @author kuro
  *
  */

@@ -17,7 +17,11 @@ import de.kuro.lazyjam.cdiutils.annotations.ComponentInit;
 import de.kuro.lazyjam.cdiutils.annotations.Render;
 import de.kuro.lazyjam.cdiutils.cdihelper.CDICallHelper;
 import de.kuro.lazyjam.cdiutils.context.GameObjectContext;
-
+/**
+ * Wraps text into a sprite
+ * @author kuro
+ *
+ */
 @Component(name="ASCIISprite")
 public class ASCIISpriteAnimation extends SimpleAbstractAnimationComponent {
 

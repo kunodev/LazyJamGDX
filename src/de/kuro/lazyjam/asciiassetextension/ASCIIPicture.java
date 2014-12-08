@@ -10,6 +10,11 @@ import de.kuro.lazyjam.cdiutils.annotations.Render;
 import de.kuro.lazyjam.cdiutils.annotations.Update;
 import de.kuro.lazyjam.simpleservice.FontManager;
 
+/**
+ * A Single Text to be rendered as Asset
+ * @author kuro
+ *
+ */
 @Component(name="ASCIIPic")
 public class ASCIIPicture implements IRectangleProvider {
 
@@ -25,7 +30,11 @@ public class ASCIIPicture implements IRectangleProvider {
 	public ASCIIPicture(String picture) {
 		this.picture = picture;
 	}
-	
+	/**
+	 * Overwrite the rectangle if wished
+	 * @param width
+	 * @param height
+	 */
 	public void setBoundaries(int width, int height) {
 		this.rect = new Rectangle();
 		this.rect.width = width;
@@ -42,6 +51,9 @@ public class ASCIIPicture implements IRectangleProvider {
 		this.getRectangle().y = pos.y;
 	}
  
+	/**
+	 * Calculates a rectangle from the text (Sure this can be done better, but it works)
+	 */
 	@Override
 	public Rectangle getRectangle() {
 		if(rect == null) {

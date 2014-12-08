@@ -1,7 +1,11 @@
 package de.kuro.lazyjam.cdiutils.context;
 
 import de.kuro.lazyjam.ecmodel.IGameState;
-
+/**
+ * Game State context, contains the state itself, and the services registered with the gamestate
+ * @author kuro
+ *
+ */
 public class GameStateContext implements ICallerContext {
 
 	private GlobalContext globalContext;

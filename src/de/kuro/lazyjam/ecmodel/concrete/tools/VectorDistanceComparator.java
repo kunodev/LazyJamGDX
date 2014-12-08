@@ -6,7 +6,11 @@ import com.badlogic.gdx.math.Vector2;
 
 import de.kuro.lazyjam.ecmodel.concrete.GameObject;
 
-
+/**
+ * Compares distance for 2 vectors in relation to a reference
+ * @author kuro
+ *
+ */
 public class VectorDistanceComparator implements Comparator<GameObject> {
 
 	Vector2 referenceVector;

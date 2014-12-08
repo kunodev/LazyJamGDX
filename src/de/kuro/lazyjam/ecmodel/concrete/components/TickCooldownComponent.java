@@ -2,6 +2,11 @@ package de.kuro.lazyjam.ecmodel.concrete.components;
 
 import de.kuro.lazyjam.cdiutils.annotations.Update;
 
+/**
+ * Counts ticks for you
+ * @author kuro
+ *
+ */
 public abstract class TickCooldownComponent {
 	
 	protected int cooldownTicks;

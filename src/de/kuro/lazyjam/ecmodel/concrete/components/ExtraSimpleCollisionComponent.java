@@ -13,7 +13,12 @@ import de.kuro.lazyjam.cdiutils.annotations.Update;
 import de.kuro.lazyjam.cdiutils.context.GameObjectContext;
 import de.kuro.lazyjam.ecmodel.concrete.GameObject;
 import de.kuro.lazyjam.ecmodel.concrete.GameState;
-
+/**
+ * Collision detection locally in the object, you cann add filters as you like, 
+ * tagToSearch should be set, if you need the perfomance
+ * @author kuro
+ *
+ */
 public class ExtraSimpleCollisionComponent {
 	
 	public List<Predicate<GameObject>> filters;

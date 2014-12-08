@@ -4,6 +4,11 @@ import com.badlogic.gdx.math.Vector2;
 
 import de.kuro.lazyjam.cdiutils.annotations.Update;
 
+/**
+ * Adds v to your position each tick
+ * @author kuro
+ *
+ */
 public class VelocityComponent {
 	
 	public Vector2 v;

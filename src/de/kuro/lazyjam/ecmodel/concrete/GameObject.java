@@ -19,7 +19,13 @@ import de.kuro.lazyjam.cdiutils.context.ICallerContext;
 import de.kuro.lazyjam.ecmodel.IGameState;
 import de.kuro.lazyjam.ecmodel.concrete.components.RelativityComponent;
 import de.kuro.lazyjam.ecmodel.concrete.tools.Collision;
-
+/**
+ * GameObject is something that should be on the screen
+ * It holds a position, a tag, and a list of components
+ * It will be called each update and render loop and call it on the components (Marked with annotations)
+ * @author kuro
+ *
+ */
 public class GameObject {
 
 	private Vector2 pos;
@@ -30,10 +36,6 @@ public class GameObject {
 
 	public GameObject(Vector2 pos, IGameState gs) {
 		this(pos, null, gs);
-	}
-	
-	private GameObject() {
-		
 	}
 
 	public GameObject(Vector2 pos, String tag, IGameState gs) {

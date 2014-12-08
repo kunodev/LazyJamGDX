@@ -18,7 +18,11 @@ import de.kuro.lazyjam.ecmodel.AGameState;
 import de.kuro.lazyjam.ecmodel.concrete.tools.GameStateServiceManager;
 import de.kuro.lazyjam.ecmodel.concrete.tools.QueueSet;
 import de.kuro.lazyjam.ecmodel.concrete.tools.VectorDistanceComparator;
-
+/**
+ * Somewhere else this might be called Scene Graph, it contains all the gameObjects 
+ * @author kuro
+ *
+ */
 public class GameState extends AGameState {
 
 	public Collection<GameObject> gameObjects;

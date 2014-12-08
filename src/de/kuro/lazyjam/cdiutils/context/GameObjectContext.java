@@ -2,6 +2,11 @@ package de.kuro.lazyjam.cdiutils.context;
 
 import de.kuro.lazyjam.ecmodel.concrete.GameObject;
 
+/**
+ * Contains, the gameobject, the position and every compnent
+ * @author kuro
+ *
+ */
 public class GameObjectContext implements ICallerContext{
 	
 	public ICallerContext gsc;
@@ -28,9 +33,6 @@ public class GameObjectContext implements ICallerContext{
 			if(clazz.isInstance(silbing)) {
 				return (T) silbing;
 			}
-		}
-		if(gsc == this) {
-			System.out.println("youre doing shizzle!");
 		}
 		return gsc.getContextObject(clazz);
 	}

@@ -5,6 +5,11 @@ import java.lang.reflect.Field;
 import de.kuro.lazyjam.cdiutils.annotations.InjectedService;
 import de.kuro.lazyjam.cdiutils.cdihelper.ServiceManager;
 
+/**
+ * Same As serviceManager, but can inject global services into gamestate scoped ones
+ * @author kuro
+ *
+ */
 public class GameStateServiceManager extends ServiceManager {
 	
 	protected ServiceManager globalService;

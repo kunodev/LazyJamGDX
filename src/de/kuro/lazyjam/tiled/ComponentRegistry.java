@@ -10,7 +10,12 @@ import de.kuro.lazyjam.cdiutils.annotations.Component;
 import de.kuro.lazyjam.cdiutils.annotations.Service;
 import de.kuro.lazyjam.cdiutils.cdihelper.ReflectionUtil;
 
-
+/**
+ * Scans for the Components that can be used in tiled
+ * and keeps the Mapping
+ * @author kuro
+ *
+ */
 @Service
 public class ComponentRegistry {
 	

@@ -3,6 +3,12 @@ package de.kuro.lazyjam.cdiutils.context;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A Context that defines a list of Objects it adds and a fallback context,
+ * 
+ * @author kuro
+ *
+ */
 public class ExtendableContext implements ICallerContext{
 	
 	public List<Object> extensions;

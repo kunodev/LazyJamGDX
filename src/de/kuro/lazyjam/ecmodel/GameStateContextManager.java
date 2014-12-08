@@ -9,7 +9,11 @@ import com.badlogic.gdx.Input;
 import de.kuro.lazyjam.cdiutils.cdihelper.ServiceManager;
 import de.kuro.lazyjam.cdiutils.context.GlobalContext;
 
-
+/**
+ * Holde rof the GameStates, this class switches between GameStates
+ * @author kuro
+ *
+ */
 public class GameStateContextManager {
 
 	private Map<Class<? extends IGameState>, IGameState> gameStates;

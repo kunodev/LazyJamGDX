@@ -1,5 +1,9 @@
 package de.kuro.lazyjam.cdiutils.context;
-
+/**
+ * Contains GameObjectContext and String from TiledMap
+ * @author kuro
+ *
+ */
 public class MapInitContext implements ICallerContext{
 
 	public GameObjectContext goc;

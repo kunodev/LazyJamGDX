@@ -15,7 +15,11 @@ import de.kuro.lazyjam.cdiutils.annotations.Render;
 import de.kuro.lazyjam.cdiutils.annotations.Update;
 import de.kuro.lazyjam.cdiutils.cdihelper.CDICallHelper;
 import de.kuro.lazyjam.cdiutils.context.GameObjectContext;
-
+/**
+ * SpriteSheet Rendering Compnent
+ * @author kuro
+ *
+ */
 @Component(name="PNGSprite")
 public class PNGSpriteRenderComponent extends SimpleAbstractAnimationComponent implements IRectangleProvider{	
 	

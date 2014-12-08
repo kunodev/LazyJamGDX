@@ -11,10 +11,22 @@ import java.util.Set;
 import de.kuro.lazyjam.cdiutils.annotations.InjectedService;
 import de.kuro.lazyjam.cdiutils.annotations.Service;
 
+/**
+ * The Beholder Class of singleton-style objects.
+ * Keeps a mapping of Class to Objects (so you can access them just by knowing hte class)
+ * Will also take care of dependencies with the @InjecteService annoation
+ * @author kuro
+ *
+ */
 public class ServiceManager {
-
-	protected Map<Class<?>, Object> servicesObjects;
+	protected Map<Class<?>, Object> servicesObjects;	
+	/**
+	 * Remembers what has been injected
+	 */
 	protected Map<List<Field>,Class<?>> injections;
+	/**
+	 * Maps interfaces to the classes you actually need
+	 */
 	protected Map<Class<?>, Class<?>> interfaces;
 
 	public ServiceManager() {
@@ -22,16 +34,28 @@ public class ServiceManager {
 		injections = new HashMap<List<Field>,Class<?>>();
 		interfaces = new HashMap<Class<?>, Class<?>>();
 	}
-
+	/**
+	 * THe Method to add an object Manually (you can also add any object, e.g. gdx.input)
+	 * @param service
+	 */
 	public void registerAsService(Object service) {
 		Class<?> clazz = service.getClass();
 		addServiceAndInject(clazz, service);
 	}
 	
+	/**
+	 * If you need to access an interface, define which class is behind the interface
+	 * @param iface
+	 * @param serviceClass
+	 */
 	public void registerInterfaceMapping(Class<?> iface, Class<?> serviceClass) {
 		this.interfaces.put(iface, serviceClass); //TODO: sanityChecks?
 	}
-
+	/**
+	 * getter
+	 * @param clazz
+	 * @return
+	 */
 	public <T> T getService(Class<T> clazz) {
 		if(servicesObjects.containsKey(clazz)) {
 			return clazz.cast(servicesObjects.get(clazz));
@@ -42,7 +66,11 @@ public class ServiceManager {
 		T specialImplementationService = searchClassHierarchy(clazz);
 		return specialImplementationService;
 	}
-	
+	/**
+	 * Fallback method if you extend Services
+	 * @param clazz
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	private <T> T searchClassHierarchy(Class<T> clazz) {
 		for(Entry<Class<?>, Object> entry : this.servicesObjects.entrySet()) {
@@ -56,14 +84,20 @@ public class ServiceManager {
 		}
 		return null;
 	}
-
+	/**
+	 * Gets everything annotated with @Service
+	 */
 	public void searchForServices() {
 		Set<Class<?>> classes = ReflectionUtil.reflect.getTypesAnnotatedWith(Service.class);
 		for (Class<?> clazz : classes) {
 			addServiceAndInject(clazz, null);
 		}
 	}
-	
+	/**
+	 * 
+	 * @param clazz
+	 * @param o
+	 */
 	private void addServiceAndInject(Class<?> clazz, Object o) {
 		try {
 			Object service = o;
@@ -80,7 +114,7 @@ public class ServiceManager {
 			e.printStackTrace();
 		}
 	}
-
+	
 	private void addNewLists(Class<?> clazz) {
 		List<Field> injectorFields = new ArrayList<Field>();
 		for(Field f : clazz.getFields()) {
@@ -91,7 +125,7 @@ public class ServiceManager {
 		this.injections.put(injectorFields, clazz);
 		
 	}
-
+	
 	private void injectIntoOlds(Object service) throws IllegalArgumentException, IllegalAccessException {
 		for(Entry<List<Field>,Class<?>> entries : injections.entrySet()) {
 			for(Field f : entries.getKey()) {

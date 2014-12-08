@@ -11,6 +11,12 @@ import de.kuro.lazyjam.ecmodel.concrete.components.ASCIISpriteAnimation;
 import de.kuro.lazyjam.ecmodel.concrete.components.SimpleAbstractAnimationComponent;
 
 @Service
+/**
+ * This class loads .txt files as assets, (with animations)
+ * 
+ * @author kuro
+ *
+ */
 public class ASCIIAssetManager {
 	
 	public Map<String, ASCIISpriteAnimation> assetBank;

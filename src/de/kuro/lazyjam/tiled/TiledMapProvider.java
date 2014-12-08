@@ -21,7 +21,11 @@ import de.kuro.lazyjam.cdiutils.context.GameStateContext;
 import de.kuro.lazyjam.cdiutils.context.MapInitContext;
 import de.kuro.lazyjam.ecmodel.concrete.GameObject;
 import de.kuro.lazyjam.settings.Constants;
-
+/**
+ * Creates a GameState out of tiled
+ * @author kuro
+ *
+ */
 @Service
 public class TiledMapProvider {
 

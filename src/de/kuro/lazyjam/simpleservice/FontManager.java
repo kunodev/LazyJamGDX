@@ -9,7 +9,11 @@ import com.badlogic.gdx.math.Rectangle;
 
 import de.kuro.lazyjam.cdiutils.annotations.InjectedService;
 import de.kuro.lazyjam.cdiutils.annotations.Service;
-
+/**
+ * A Class to further support "text-as-asset Idea"
+ * not much content in here @author kuro
+ *
+ */
 @Service
 public class FontManager {
 

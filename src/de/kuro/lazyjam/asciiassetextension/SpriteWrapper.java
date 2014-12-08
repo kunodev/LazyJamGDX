@@ -9,7 +9,11 @@ import com.badlogic.gdx.math.Vector2;
 
 import de.kuro.lazyjam.cdiutils.annotations.Component;
 import de.kuro.lazyjam.cdiutils.annotations.Render;
-
+/**
+ * Simple Wrapper for Sprites that might collide
+ * @author kuro
+ *
+ */
 @Component(name = "PNG")
 public class SpriteWrapper implements IRectangleProvider {
 	

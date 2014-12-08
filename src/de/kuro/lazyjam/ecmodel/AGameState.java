@@ -7,6 +7,11 @@ import de.kuro.lazyjam.cdiutils.cdihelper.ServiceManager;
 import de.kuro.lazyjam.cdiutils.context.GlobalContext;
 import de.kuro.lazyjam.settings.Constants;
 
+/**
+ * Adds the TickGeneration as the most basic component, because ticks are awesome
+ * @author kuro
+ *
+ */
 public abstract class AGameState implements IGameState {
 
 	protected final List<Runnable> updateAbles;

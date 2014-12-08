@@ -14,7 +14,11 @@ import de.kuro.lazyjam.cdiutils.cdihelper.ServiceManager;
 import de.kuro.lazyjam.cdiutils.context.GameStateContext;
 import de.kuro.lazyjam.ecmodel.GameStateContextManager;
 import de.kuro.lazyjam.tiled.TiledMapProvider;
-
+/**
+ * Main Class extend this to start off
+ * @author kuro
+ *
+ */
 public abstract class LazyJamApplicationAdapter extends ApplicationAdapter {
 
 	public SpriteBatch batch;

@@ -1,5 +1,9 @@
 package de.kuro.lazyjam.tools;
-
+/**
+ * Crude implementation of a thread
+ * @author kuro
+ *
+ */
 public class WorkerThread extends Thread {
 
 	private int sleepTimeMillis;

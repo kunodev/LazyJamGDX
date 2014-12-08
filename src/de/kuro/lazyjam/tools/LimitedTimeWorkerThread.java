@@ -1,5 +1,10 @@
 package de.kuro.lazyjam.tools;
 
+/**
+ * Crude implementation of a thread
+ * @author kuro
+ *
+ */
 public class LimitedTimeWorkerThread extends WorkerThread {
 
 	private int maxTimes;

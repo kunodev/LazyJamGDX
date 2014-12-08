@@ -2,7 +2,12 @@ package de.kuro.lazyjam.cdiutils.context;
 
 import de.kuro.lazyjam.cdiutils.cdihelper.ServiceManager;
 import de.kuro.lazyjam.ecmodel.GameStateContextManager;
-
+/**
+ * Contains the Singletons and the GameState Context
+ *  (useful for components that switch scenes)
+ * @author kuro
+ *
+ */
 public class GlobalContext implements ICallerContext{
 
 	public ServiceManager serviceMan;

@@ -6,7 +6,11 @@ import com.badlogic.gdx.math.Rectangle;
 
 import de.kuro.lazyjam.asciiassetextension.IRectangleProvider;
 
-
+/**
+ * Basic Animation Compnent
+ * @author kuro
+ *
+ */
 public abstract class SimpleAbstractAnimationComponent {
 
 	protected int xOffset;
